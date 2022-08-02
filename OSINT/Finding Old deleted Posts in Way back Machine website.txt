@@ -1,0 +1,22 @@
+What does the Wayback Machine do?
+
+The Internet Archive Wayback Machine is a service that allows people to visit archived versions of Web sites.
+Visitors to the Wayback Machine can type in a URL, select a date range,
+and then begin surfing on an archived version of the Web.
+
+Archive means = محفوظ شدہ دستاویزات
+
+
+it will only give you some screen shots / snapshots of how the website looked back then. its not 100% accurate 
+
+
+-----------------------------------------------------------
+wayback machine lets you see how a website snapshots look many years ago, with wayback machine archive.org you can see deleted content
+in a website / webpage
+
+
+How do I view an old website on Wayback?
+
+Visit the ( wayabck machine website / archive.org ) and copy the url of any wbsite or webpage you want to see old post or deleted post on it,
+copy the url or you can type for example twitter.com/adnanmustafa etc and wayback machine will give you a calender maping that
+on which date there were changes made on the webpage. 

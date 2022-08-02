@@ -1,0 +1,2 @@
+if user gives wrong email password .. re-request means retry .. refresh that page or tell him you gave wrong info
+.. never store user id password in persistent storage that means temporary storage. store it in model !

@@ -1,0 +1,69 @@
+def lists(request):
+    myList =[
+        {
+            'label':'weapon'    # [0] index
+        },
+        {
+            'label':1,    # [1] index
+	    'mabel':2        
+	}
+    ]
+
+    print(myList)
+    return render(request,'sample.html')
+    Output = [{'label': 'weapon'}, {'label':1, 'mabel':2}] #Each element of the list is a dictionary.
+
+In the following program, we created a list of length 2, where all the 2 elements are of type dict.
+
+
+---------------
+---------------
+
+
+Access key:value pairs in List of Dictionaries
+Dictionary is like any element in a list. Therefore, you can access each dictionary of the list using index.
+
+And we know how to access a specific key:value of the dictionary using key.
+
+In the following program, we shall print some of the values of dictionaries in list using keys.
+
+print(myList[0])
+print(myList[1]['mabel'])
+
+Output = {'label': 'weapon'}
+	 2
+
+
+Update Key :
+ you can update mabel .mabel value is 2 you can update that 22
+	myList[1]['mabel'] = 22 
+	print(myList)
+	output {'label':22}
+
+
+Add Key : 
+ you can add key into dictionary with its value.
+	mylist[1]['rain'] = 55
+	print(myList)
+	output [{'label':'weapon'},{'rain':55}] # rain key is added 
+
+delete key : 
+ you can delete a key from dictionary 
+	myList[1]['rain']
+	output = # rain wont be shown now.. deleted 
+
+
+
+------------------
+------------------
+
+
+Append a Dictionary to List of Dictionaries
+In the following program, we shall append a dictionary to the list of dictionaries.
+
+	myList.append({'joo':48, 'par':28})
+	print(myList)
+
+Output = [{'label': 'weapon'}, {'label':1, 'mabel':2},{'joo':48, 'par':28}]
+	
+	#joo and par keys are added into existing dictionary.

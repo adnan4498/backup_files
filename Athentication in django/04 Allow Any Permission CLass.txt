@@ -1,0 +1,6 @@
+ It will give all the permissions to you weatehr your authenticated or not .
+
+just give empty list  then django will detect it by default and set it to
+ALlowAny class  but if you give this class manually then you will better
+understand your code. good practice is to give it manually. you can give
+this class with global setting as well. 

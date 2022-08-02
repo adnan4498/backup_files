@@ -1,0 +1,7 @@
+def AddManual(request):
+
+    l = Labels(label=[{'label':'weapon'}])
+    l.save()
+
+This will add data to Labels model in label attribute 
+# weapon is the data here.

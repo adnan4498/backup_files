@@ -1,0 +1,216 @@
+PAGINATOR: 
+
+Django provides a few classes that help you manage paginated data – that is,
+data that’s split across several pages, with “Previous/Next” links.
+
+
+
+from django.core.paginator import Paginator
+
+def paginate(request):
+    pt = Posts.objects.all() 		
+
+    p = Paginator(pt, 20)	 				# 20 items in single page	
+    
+    page = p.page(1)	         				# to show page number		
+
+    context = {'items': page}	 				# key passed to front-end 	
+
+    return render(request,'paginator.html',context) # output
+
+PAGNIATOR.HTML = 
+
+	{% for items in item %}
+	{{items.username}}					# This will print username of your data.
+	{% endfor %}
+
+
+output = 20 items will be paginated at your front-end on page 1. basically if you have 100 items and you select
+	 20 items per page (pt,20) then there will be 5 pages max .each page containing 20 items at once.
+	 change page number at page = p.page(2) or (3) etc an page you want. 
+
+
+Notes =    #save database data into a variable
+
+	   # Paginator + database + how many items you want to show on a single page.	
+
+	   # page variable will be passed to frontend + p.page( 1,2,3 etc what pag
+	     you want to show at front-end) p is the instance of paginator where
+	     paginator is store.
+
+	   # a key to be throwed at frontend ( context ) 
+
+
+------------------------------------------------
+
+Q2 = How to load pages from query string / url ? 
+
+    pt = Posts.objects.all()
+
+    p = Paginator(pt, 20)
+
+    page_num = request.GET.get('page', 1) 	 # use /?page= is query string or you can say url. this will take 
+						   you to any page you type in.
+    page = p.page(page_num)
+
+    context = {'items': page}
+	
+    return render(request,'paginator.html',context)
+
+
+Output = at url = 127.0.09.1:8000/form/paginate/?page=1,2,3 to load the desired page.
+
+ 
+
+Notes =  # page_num = request.GET.get('page',1) = This will load any page you want to access from the url.
+						  it,s like getting data from user. ('page', 1) will load page 1
+						  by default.
+    	
+	 # page = p.page(page_num)		= store page_num variable of  get request in p.page()
+						  we used to open page from p.page but now we store user input
+						  in p.page() now user will type /?page=1,2,3 at url.
+
+
+
+-----------------------------------------------
+
+
+
+
+Q3 = Handling EmptyPage error by using Try/Except block: 
+
+if user try's to access page = 50 ( which does not exist ) Then django will show a EmptyPage error. to handle that
+we will use Try / Except block.  
+
+The try block lets you test a block of code for errors.
+
+The except block lets you handle the error.
+
+
+For Example =      try:
+        	       page = p.page(page_num)
+    		   except EmptyPage:
+          		page = p.page(1)  
+
+So try the input from user page=1,2,3 and give him the page. if he try's to load a page that dosen't exist than 
+exception will occur. to handle that we write except EmptyPage: p.page(1) get him to page 1 directly. 
+except will handle the EmptyPage error.
+
+
+----------------------------------------------
+
+
+
+
+Q4 = How to know total ammount of pages ? 
+
+	print('Number of Pages') 
+	print(p.num_pages)       	   # num_pages is a Paginator variable that returns total ammount of pages.
+					     and p is instance variable of Paginator.
+
+Output = Number of Pages
+	 17  				   # we have 17 pages depending on our data in our model bcz we are showing
+					     20 data per page. 
+
+
+Important Note = if you change how many data you want to show in a single page. means ,,Paginator(pt, 20) and
+		 if you want to show 10 data per page ,, Paginator(pt, 10) then the total Number of page will 
+		 be increased.  
+
+		Number of pages 
+		33               	  # 33 pages for 10 data per page.
+
+
+
+--------------------------------------------------
+ 
+Q5 = Next page / Previous page for paginator ? 
+
+    	 {% for items in item %}
+    	 {{items.username}}					
+	 {% endfor %}
+
+     <a href="#">Previous Page</a>
+     <a href="#">Next Page</a>		
+
+This will create a previous page and next page at front-end at bottom of your data.
+
+
+
+-------------------------------------------------
+
+Q6 = Not showing prev / next page at (first) and at (last) page.
+
+we have 1 to 37 pages with 10 obejects/data per page.
+
+Pagination has 2 methods to stop showing prev and next at 1st and at last page. 
+
+1 = has_previous 
+2 = has_next 
+
+
+	
+     {% if items.has_previous %}		# if previous page is available then show or else dont.
+     <a href="#">Previous Page</a>			
+     {% endif %}
+
+     {% if items.has_next %}			# if next page is available then show or else dont.
+     <a href="#">Next Page</a>
+     {% endif %} 	
+
+
+
+--------------------------------------------------
+
+Q7 = How to make prev / next work and change pages.
+
+The logic behind this is inside url. next and prev will basically change url. every page has different url 
+so for that we will write a logic inside our <a href"#" at this hashtag.
+
+
+For Previous = <a href="{% url 'paginate' %}?page={{items.previous_page_number}}">Previous Page</a> 
+
+For Next = <a href="{% url 'paginate' %}?page={{items.next_page_number}}">Next Page</a>
+
+
+How does it work ? 
+
+# % url 'paginate' paginate is the name of the url given inside path in urls.py.
+# ?page= is the query string / url. code to change page from url 
+# items has our database username. next_page_number and previous_page_number are the codes,
+  will get the job done here to change pages between urls.
+# double curly brackets is must for {{items.next_previous_page_number}} {{}} or it wont run.
+
+
+----------------------------------------------------------------------
+
+Q8 = How to show  = page 1 of 13 
+
+To show on which page we are currently and how many pages we have. we have to write a code at frontend
+   
+
+	Page {{items.number}} of {{items.paginator.num_pages}}
+  
+
+output = Page 1 of 13 ... page 2 of 13 etc etc
+
+
+# Page = written as Page. Just a Name ! 
+
+# {{items.number}} = what number of page were currently on
+
+# of =  page 1 of . Just a Name !
+
+# {{items.paginator.num_pages}} = total number of pages 
+
+
+
+
+
+	Page   {{items.number}} of {{items.paginator.num_pages}}
+  	Page  	1	        of  	     13 
+	        # by default
+	        # will get changed 
+
+
+-----------------------------------------------------------------------	 

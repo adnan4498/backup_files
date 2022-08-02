@@ -1,0 +1,15 @@
+What is OSINT?
+
+
+If you’ve heard the name but are wondering what it means, OSINT stands for open source intelligence,
+which refers to any information that can legally be gathered from free, public sources about an individual
+or organization. In practice, that tends to mean information found on the internet, but technically any public
+information falls into the category of OSINT whether it’s books or reports in a public library,
+articles in a newspaper or statements in a press release.
+
+OSINT also includes information that can be found in different types of media, too. Though we typically think of
+it as being text-based, information in images, videos, webinars, public speeches and conferences all fall under the
+term.
+
+
+

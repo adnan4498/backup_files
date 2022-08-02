@@ -1,0 +1,101 @@
+1 to 1 database relationship !! 
+
+Suppose that we have an entity called employe.. and 1 more entity called department .. there is a relation between both entities called work. 
+
+employee == work == department 
+
+now we  make employee table ...what will be the attributes in employee table ? lets say 
+
+employee id = eid
+employee name = ename
+employee age = eage
+
+name and age can be same but id will always be unique auto generated .. 
+
+now in department table the attributes will be 
+
+department id = did
+department name = dname
+department address =dadress
+
+name and address can be same but again id will be unique will always be.
+
+now suppose the relationship table name is work .. 
+
+work will tell us that which employee is working in which department. 
+
+what will be the attributes in work table.
+
+There can be many attributes in relationship table called work . but 2 attributes will always be in relationship table. must ! 
+
+that is    
+
+eid = employee id
+did = department id 
+
+eid and did will act as foriegn key = fk
+
+what is a foreign key ? 
+A foreign key is a set of attributes in a table that refers to the primary key of another table. The foreign key links these two tables. 
+
+foreign key takes refrence from primary key . and whats primary key in database ? that will be something unique .. like here id is unique in both employee and department table .. 
+
+so we will add both unique id's ( primary keys) inside relationship table and thats gonna be called foreign key now.
+
+now relationship has been completed in terms of coding. 
+
+foreign keys cannot be different then primary keys of the both tables.
+
+foreign keys cannot be added more than once .. means .. if employee 1 = e1 works in department 2= e2 = and you write employee 1 = e1 works in department 3 = d3 .. its false 
+
+e1 cant work in both departments at same time ., e1 is for d2 etc.. e2 is in d3...
+
+this is called 1 to 1 relation .. 1 employee works in 1 department. simply 1 to 1 relationship concept. 
+
+what will be the primary key in relationshio table (work) ? 
+
+so employee table has primary key as employee id =eid .. departmend has = did
+
+whats gonna be the primary key for relationship table ? its simple .. relationsip table has 2 attributes
+
+eid or did . primary key for relationship table can be either eid or did. bcz they cant be changed or repeated. they are unique. 
+
+why do we need primary key for relationship table when relationship table's 2 attributes got primary keys from eid and did and it became foreign key .. 
+
+we can use relationship table's primary key to make another table and reduce number of tables.
+
+how to reduce tables ? 
+
+so here we have 3 tables . 
+employee table .
+relationship tanle ( work ) .
+and department table .
+
+eid |ename | age |       - eid | did -        did | dname  |  dL 
+e1   adnan    20             e1     d1           d1       IT       karachi
+e2   moiz      25             e3     e2           d2       prod   lahore
+e3   ali          30             e2     d3           d3       hr       multan
+
+
+
+we will simply merged primary keys of emplyee and work table ..
+
+we will make a new table and we will add 4 attributes 
+
+( NEW TABLE )
+eid  | ename | age | did 
+e1      adnan   20     d1 
+e2      moiz      25    d3
+e3      ali          30    d2
+
+
+now we only got 2 tables 
+
+1 is the new table with 4 attributes. and 2nd table is department table just give departmened unique id and we got everything. 
+
+if u take eid . merge employee table with relationship table
+eid + work = 2 tables 
+
+if u take did . merge department table with relationship table
+did + work = 2 tables 
+

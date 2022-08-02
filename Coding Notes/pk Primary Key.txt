@@ -1,0 +1,22 @@
+def student_detail(request, pk): 		# pk is passed here 
+    stu = Student.objects.get(id=pk) 		# get(1) or get(2) instead we added pk now we can access data objects from the url instead of calling from here
+    serializer = StudentSerializer(stu)
+    json_data = JSONRenderer().render(serializer.data)
+    return HttpResponse(json_data, content_type = 'application/json')
+
+urls.py 
+	   path('seri/<int:pk>',views.student_detail,name='student')
+
+
+output = 127.0.0.1:8000/seri/1    = will give data of primary key number 1   = adnan 101 karachi
+	 127.0.0.1:8000/seri/2	  = will give data of primary key number 2   = moiz 102 karachi
+         127.0.0.1:8000/seri/3    = will give data of primary key number 3   = ali 103 lahore
+
+
+
+
+
+
+pk is short for primary key, which is a unique identifier for each record in a database.
+Every Django model has a field which serves as its primary key,
+and whatever other name it has, it can also be referred to as "pk".

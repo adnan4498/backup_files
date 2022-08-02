@@ -1,0 +1,7 @@
+Serializer class is same as model 
+
+any name you pick for your model with that Serializer must be typed for good practice
+
+StudentSerializer
+CollegeSerializer
+FormSerializer etc etc 

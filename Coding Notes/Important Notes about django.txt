@@ -1,0 +1,23 @@
+Never use filter over unique ID. always use get on unique ID. 
+filter me loop se iterate hoga attribute.
+get me print me bi 1 record ajayega.
+
+
+
+user gave content link . 		#tweets can be same but content_link will be unique 
+user will give label. 
+
+then we will match this content_link in database.
+when user gives label. we will match tha
+Post has a label attritubute at the end and its empty
+
+
+
+objects.get se id leni hai 
+
+Labels model id utahke POST model ke label attritbe me id add krwadega.
+content_link ke against.  POST wale id me jab ap Label save krwarhe hoge to
+.add() ka function use hoga label pr.
+
+
+

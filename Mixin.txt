@@ -1,0 +1,6 @@
+What is the use of mixin?
+
+Mixins are a language concept that allows a programmer to inject some code into a class.
+Mixin programming is a style of software development, in which units of functionality are 
+created in a class and then mixed in with other classes. A mixin class acts as the parent class, 
+containing the desired functionality

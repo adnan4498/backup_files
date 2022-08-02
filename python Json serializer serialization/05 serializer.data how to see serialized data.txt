@@ -1,0 +1,7 @@
+to see serialized data
+
+
+print (serializer.data)
+
+
+serializer is a variable name it can be changed but .. serializer name is good practice 

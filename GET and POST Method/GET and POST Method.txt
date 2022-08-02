@@ -1,0 +1,18 @@
+user searches a product samsung a32.. then program shows him the product.
+
+user send request to Api,s post request about samsung a32 .. Api then gets the model id of samsung a32 by GET method .. and then
+Api sends the MODEL ID to the user in front end.
+
+
+
+search samsung a32 			= POST request got hit 
+Multiple samsung a32 on screen		= Filter method here .. multiple samsung a32 given black blue editon etc etc mutliple ID's given.
+User click on samsung a32 black 	= Api use GET method to GET a single ID from data base ( eg: ID number 50 is samsung a32 black) 
+
+
+
+
+
+The upper scenario was run over Post request	[ def POST(request,) ] and by default django writes GET Method. 
+
+user hits Post request and Post request then uses Get Method.

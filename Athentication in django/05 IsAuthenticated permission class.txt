@@ -1,0 +1,2 @@
+No permission to user whos not authenticated. till he register himself .. iD password
+then program will give him permissions 

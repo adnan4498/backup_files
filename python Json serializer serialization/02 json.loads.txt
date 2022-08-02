@@ -1,0 +1,14 @@
+import json
+
+json_data={"name":"adnan", "roll":8}
+
+parsed_data= json.loads(json_data)
+print(parsed_data)
+
+output = {'name':'adnan', 'roll':8}
+
+json.loads is used to convert / give / parse json data into python data.
+
+
+
+loads = This is used to parse json string.

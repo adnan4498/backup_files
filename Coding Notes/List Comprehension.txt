@@ -1,0 +1,23 @@
+def lists(request):
+    st = [[1,2], [3,4]]
+    
+    # Method 1 
+    one = [x for l in st for x in l] 		 # This will return list by loop
+    print(one)					 # st values putted in l then l valeus putted in x. then 1 by 1
+						   values will be printed / returned in x. 
+
+    Output = [1,2,3,4]
+
+    # Method 2 
+    for l in st:
+        for x in l:   		     		 # Simple values returned by loop 
+
+            print(x)
+
+    output = 1 
+             2
+             3
+             4        
+    
+
+    return HttpResponse('done')

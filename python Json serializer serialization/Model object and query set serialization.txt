@@ -1,0 +1,25 @@
+Model Object Serialization Process
+
+
+stu = Student.objects.get(id=1)  # get the object with id number 1 
+
+serializer = StudentSerializer(stu) # serializer is an instance (you can type any name here) then... StudentSerializer is our class we made earilier .. then  (stu) is model instance
+
+
+Serializer is the method here to convert model object into native python data type
+
+
+
+
+
+
+Query set ( full model data ) serialization process 
+
+stu = Student.objects.all() # model stored in model instance (stu)
+
+serializer = StudentSerializer(stu, many=True) # instance name serializer .. then (stu) is the model and (many = true) means there are many objects / fields in a model so its true.
+
+
+
+for model object we dont use many=true bcz we get only 1 object
+for full model / query set we use many=true !

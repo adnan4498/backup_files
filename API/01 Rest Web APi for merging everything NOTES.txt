@@ -1,0 +1,15 @@
+If we make a web application in laravel or PHP or DJango etc in any language then we user can access our web app 
+from a browser but if he wants to access our web app through android app or java app or python app, he cannot 
+bcz of different language code written .. for that we need REST Web API or REST API. 
+
+WEB API and API are same 
+
+REST WEB API and REST API are same 
+
+REST is not any dictionary or code or library .. its just a procedure or method .. 
+
+
+
+Through API android app can interact with web app and user can access to the services and work with it. 
+
+API dont depend on any language it provides services to all apps.

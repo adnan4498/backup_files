@@ -1,0 +1,2 @@
+THe permission method will see user data in request.user and request.auth 
+to see what kind of permission should be allowed to the imcomming user.

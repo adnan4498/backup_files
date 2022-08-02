@@ -1,0 +1,27 @@
+hash tag ko user name ke niche lana 
+
+ek content link htani hai 
+
+liek count share count retweet count lekr ana hai 
+
+like count
+------- green line 
+5000 etc 
+
+
+share count
+------- green line 
+5000 etc 
+
+
+retweet count
+------- green line 
+5000 etc 
+
+
+all text should be modified by font family. with font size . headings bold krdo
+
+
+1,2,3 pagiantion 1 hi ayegi sbse niche 
+
+for loop ka div contaienr utah ke end for ke bhr print kru sbse niche.  

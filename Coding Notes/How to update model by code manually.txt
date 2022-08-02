@@ -1,0 +1,6 @@
+  l = Labels()
+    l.label ='weapon'
+    l.save()
+
+
+This is how you update an existing model 

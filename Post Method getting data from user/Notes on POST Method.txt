@@ -1,0 +1,8 @@
+request.POST.get is used to get data from user 
+
+in 1st pic we get data from user and print it in terminal 
+
+in 2nd pic we get data from user and we equal that data with our data base model .. and save our data base model.
+
+eg : user = students.objects.all(db_name)
+     user.save()     

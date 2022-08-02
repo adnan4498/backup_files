@@ -1,0 +1,8 @@
+Other OSINT Tools, Techniques and Resources
+
+One of the most obvious tools for use in intelligence gathering is, of course, web search engines like Google, Bing and so on. In fact, there’s dozens of search engines,
+and some may return better results than others for a particular kind of query. The problem is, then, how can you query these many engines in an efficient way?
+
+A great tool that solves this problem and makes web queries more effective is Searx. Searx is metasearch engine which allows you to anonymously and simultaneously collect results from more than 70
+search services. Searx is free and you can even host your own instance for ultimate privacy. Users are neither tracked nor profiled, and cookies are disabled by default. Searx can also be used over
+Tor for online anonymity.

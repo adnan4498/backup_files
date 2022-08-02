@@ -1,0 +1,11 @@
+stu = Students.objects.all()
+
+print(stu)
+
+
+stu is model instance !  
+
+or you have a model name ..  class Student(models.Model):
+				name = Charfield(max_length=100)
+
+name = adnan # adnan can be an instance of model as well .. or model object 

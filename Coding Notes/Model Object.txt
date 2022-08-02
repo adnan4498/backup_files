@@ -1,0 +1,5 @@
+stu = Students.objects.get(id=1)
+
+
+
+Here we are getting a Model Object 

@@ -1,0 +1,12 @@
+Json Response() is used to short our code all we have to write is 
+
+JsonResponse(data, encoder=DjangoJSONEncoder, safe=True,json_dumps_params=None,
+**kwargs)
+
+with the above code we convert python dict data into JSON encoded response..
+so we can send our data to frontend easily. 
+
+first paramater data should be a python dict. our data. if parameter is false
+the data can be a JSON-serializable object .. means data can be serialized and passed 
+otherwise only python dict python object 
+

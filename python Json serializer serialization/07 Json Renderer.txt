@@ -1,0 +1,10 @@
+To show data on frontend we need Json 
+
+we need to render our serialized data into json to show it in front end
+
+
+first import JSONRenderer from rest framework
+
+
+json_data = JSONRenderer().render(serializer.data) # serializer is the variable where we saved our serialized data.
+

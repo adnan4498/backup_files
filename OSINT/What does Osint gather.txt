@@ -1,0 +1,2 @@
+Osint dont gather private or hidden information it only gathers publically available information .. does not requeired
+any kind of hacking . infomation might be of an individual or any organization 

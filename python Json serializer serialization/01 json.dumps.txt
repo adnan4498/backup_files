@@ -1,0 +1,13 @@
+import json
+
+python_data={'name':'adnan', 'roll':8}
+json_data = json.dumps(python_data)
+
+print(json_data)
+
+output = {"name":"adnan", "roll":8}
+
+
+
+we had a python dict data .. python dict data is not json format . to make
+it json format we use    json.dumps   to convert and pass into json format.

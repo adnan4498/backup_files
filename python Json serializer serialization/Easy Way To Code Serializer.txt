@@ -1,0 +1,9 @@
+from dataclasses import field, fields
+from pyexpat import model
+from rest_framework import serializers
+from test1.models import Student
+
+class StudentsSerializer(serializers.Serializer):
+    class Meta:
+        model = Student		# on which model you want to do serialization	
+        fields = "__all__"  	# all field of the selected model 

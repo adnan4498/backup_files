@@ -1,0 +1,4 @@
+user.is_staff can be True in coding.. or in the admin panel. in the createsuperuser 
+you can give access to any user. by login to admin panel and going to users. add users 
+and there you can enter an username or email .. and then you can give him the permissions you want
+or you can give him staff access or make him admin.. you can change hes permissions as well.

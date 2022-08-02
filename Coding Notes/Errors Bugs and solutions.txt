@@ -1,0 +1,51 @@
+[Error ] : Reverse for -- not a valid view function or pattern name.
+\/\/\/
+\/\/\/
+\/\/\/
+
+NoReverseMatch at /form/paginate/
+
+Reverse for 'paginate xyz' not found. 'paginate xyz' is not a valid view function or pattern name.
+
+Error occurs when your "{% url 'paginate' %}?page={{items.previous_page_number}}" and urls.py path name is changed
+
+If path('paginate/',views.paginate,name='paginator') name is paginator
+
+and
+
+{% url is 'paginate' then its gonna throw error.
+
+\/\/\/
+\/\/\/
+\/\/\/
+[ SOLUTION ] = url path name and href %url name should be the same 
+
+
+----------------------------------------------------------------------------------------------------
+
+
+[ Error ]: context must be a dict rather than set.
+\/\/\/
+\/\/\/
+\/\/\/
+
+This might occur if your passing a different / wrong key in context to your front end.
+i was passing context {'page'} to front end and there i was using loop over 'items' which didnt existed
+
+\/\/\/
+\/\/\/
+\/\/\/
+[ SOLUTION ] = changed {'pages'} to {'items'} and then it worked. items got passed to front end. 
+
+
+
+--------------------------------------------------------------------------------------------------
+
+[ Error ] : if e.tag == XINCLUDE_INCLUDE:
+
+
+Solution = This error occurs when you give  [ xml.etree.ElementInclude ] instead of [ from django.urls import include ]
+	   in the main project urls.  
+
+
+--------------------------------------------------------------------------------------------------

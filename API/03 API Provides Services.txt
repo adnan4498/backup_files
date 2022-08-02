@@ -1,0 +1,20 @@
+SUppose that someone make / maintains an API and gave it to us through a link.
+
+http://geelyshows.com/api/students
+
+this api is providing service of data of karachi universitys students. and 
+exposed the students data in this api .. so we can get access to this api
+and suppose that we have a university..so were gonna send message to every
+student we got it from this api .. and tell them to join our university
+with low fees free addmission etc etc.  we will have to sent request to 
+the given api / link by someone.
+
+http:// = host 
+
+geekyshows.com = Base URl / Domain
+
+api = api is our api name can be changed but good practice. 
+
+students = Resourse of API or End-point .. means what kind of information
+	   were getting in this API . we are getting students information
+	   through this API.

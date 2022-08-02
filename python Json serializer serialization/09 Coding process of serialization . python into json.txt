@@ -1,0 +1,206 @@
+Here we will learn how to make model then convert that model data into python native and then show that data on front end.
+
+basically were going to see how to show data of data base into front end 
+
+ 
+
+First we will make a project name seralize 
+
+then we will make an app seri 
+
+then we will install app and rest framework 
+
+then we will make a simple model name Student with 3 attributes . name roll city 
+
+then make migrations / migrate and create super user 
+
+then at admin.py we will mention our table / register our model .... and below that we will make   class StudentAdmin(admin.ModelAdmin):	so we,ll be able to see name roll and city table in our admin panel.
+   												     list_display = ['id', 'name', 'roll', 'city']
+
+then we will 3 model objects / instance 
+
+adnan 101 karachi
+moiz 102 karachi
+ali 103 lahore          # this is model complex data 
+
+
+now we will have to convert this model complex data into  -- native python data type -- then into -- Json -- then send json data into front end 
+
+   			[ convert = complex data = python native data = json = front end ]
+
+
+for converting first we will make a file name serializer.py 
+
+then inside serializer.py we will import ... from rest_framework import serializers
+
+then we will make class name StudentSerializer
+
+			from rest_framework import serializers
+
+			class StudentsSerializer(serializers.Serializer):
+    				name = serializers.CharField(max_length=100)
+    				roll = serializers.IntegerField()
+    				city = serializers.CharField(max_length=100)
+
+
+Then we will come into views.py 
+
+
+and make a function name student details
+
+
+def student_detail(request):
+    stu = Student.objects.get(id=1)   					 # First we got an model object / complex data
+    serializer = StudentSerializer(stu)	 	 		 # then we converted this model object into python object . pythonn native data
+    json_data = JSONRenderer().render(serializer.data)	 		 # then we convertd python native data into json 
+    return HttpResponse(json_data, content_type = 'application/json')	 # first we put json_data to our response and then tell the content that we are sending json data 'application/json'
+
+Output = {"name":"Adnan","roll":101,"city":"karachi"}  # double qoutes means this is json data 
+
+
+
+For better understanding all the data we simply print everything 
+
+
+def student_detail(request):
+    stu = Student.objects.get(id=1)
+    print(stu)        
+    serializer = StudentSerializer(stu)
+    print(serializer)
+    json_data = JSONRenderer().render(serializer.data)
+    print(json_data)
+    return HttpResponse(json_data, content_type = 'application/json')
+
+
+output  =   Student object (1) 					# model 
+
+	    StudentSerializer(<Student: Student object (1)>):
+	    name = CharField(max_length=100)
+    	    roll = IntegerField()
+            city = CharField(max_length=100)  			# after serialization printed
+
+   b'{"name":"Adnan","roll":101,"city":"karachi"}'		# after Json printed 
+
+
+
+you can get data by passing pk inside function
+
+def student_detail(request, pk):  		#pk passed
+    stu = Student.objects.get(id=pk)		# instead of get(1) or get(2) we gave id=pk
+    serializer = StudentSerializer(stu)
+    json_data = JSONRenderer().render(serializer.data)
+    return HttpResponse(json_data, content_type = 'application/json')
+
+
+urls.py
+
+ path('<int:pk>',views.student_detail,name='student')
+
+
+output = 127.0.0.8000/seri/1 		= {"name":"Adnan","roll":101,"city":"karachi"}
+       = 127.0.0.8000/seri/2 		= {"name":"moiz","roll":102,"city":"lahore"}
+	
+
+simply at url we give primary key .. pk ... 1 / 2 / 3 and we will get model objects
+
+
+
+
+Now for all query set serializtion and json 
+
+def stuinfo(request):
+    stu = Student.objects.all()
+    serializer = StudentSerializer(stu, many=True)		       # we have to give many=True bcz there are multiple tables to be serialized and json . if we dont give many=True we will get an attribute error
+    json_data = JSONRenderer().render(serializer.data)
+    return HttpResponse(json_data, content_type = 'application/json')    
+
+
+urls.py.
+
+   path('stuinfo/',views.stuinfo,name='stuinfo')
+
+
+output = 127.0.0.8000/seri/stuinfo      =  [{"name":"Adnan","roll":101,"city":"karachi"},{"name":"moiz","roll":102,"city":"lahore"},{"name":"Ali","roll":103,"city":"multan"}]
+
+
+we got all query set done serialized and json and throwed to front end . we just added get.all() and many=True
+
+
+JSON RESPONSE /// code will get short 
+
+import django.http import HttpResponse, JsonResponse
+
+
+def student_detail(request, pk):
+    stu = Student.objects.get(id=pk)
+    serializer = StudentSerializer(stu)
+    return JsonResponse(serializer.data)    			# code got short 
+
+
+output = 1 = {"name": "Adnan", "roll": 101, "city": "karachi"}
+
+
+
+def stuinfo(request):
+    stu = Student.objects.all()
+    serializer = StudentSerializer(stu, many=True)     
+    return JsonResponse(serializer.data, safe=False) 		# code got short .. give safe=false or else you will get type error bcz of non dict object
+
+
+
+output = [{"name": "Adnan", "roll": 101, "city": "karachi"}, {"name": "moiz", "roll": 102, "city": "lahore"}, {"name": "Ali", "roll": 103, "city": "multan"}]
+
+
+
+These lines got cut =		json_data = JSONRenderer().render(serializer.data)
+   			 	return HttpResponse(json_data, content_type = 'application/json')    
+
+
+
+
+HOW TO SEE ID of these model object ?
+
+{"name": "Adnan", "roll": 101, "city": "karachi"}
+{"name": "moiz", "roll": 102, "city": "lahore"}
+{"name": "Ali", "roll": 103, "city": "multan"}
+
+
+
+for that we have to exclusively  mention id in our serializer.py file :
+
+id = serializers.IntegerField()
+
+
+output = {"id":1,"name": "Adnan", "roll": 101, "city": "karachi"}
+	 {"id":2,"name": "moiz", "roll": 102, "city": "lahore"}
+ 	 {"id::3,"name": "Ali", "roll": 103, "city": "multan"}
+
+
+
+
+
+
+
+
+
+
+Any 3rd party python application mpobile application java app,larva app etc will send request to the our project app / database and then our project app or database will send data to that python app or java app or any app made etc
+  			 
+
+we will make a new file ... myapp
+
+
+import requests
+URL = "http://127.0.0.1:8000/seri/1"
+
+r = request.get(url = URL)
+
+data = r.json()
+
+print(data)
+
+
+it will give the 1st data to the 3rd party application
+
+
+		NOTE = This has nothing to do with django or python its just to show you how any other 3rd party app can get access to your data base from your project app
